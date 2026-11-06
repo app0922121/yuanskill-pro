@@ -1,5 +1,41 @@
 # CHANGELOG · yuanskill-pro
 
+# CHANGELOG · yuanskill-pro
+
+## v2.1.0 · 领域判定 + 五层信源调研 + YouTube 默认调研（2026-11-06）
+
+**一句话**：阶段 2 从「WebSearch 广搜竞品」改为「判领域 → 先写假设 → 五层信源（官方/门户/产品/社区/YouTube）→ 双语×两时段 → 停止规则 → 覆盖表填满」，BASIC 也必做。
+
+**用户原话**（2026-11-06）：输入的任何问题，1 分辨所在领域，2 找出这个领域的网站、门户站和相关产品并搜索调研，3 YouTube 上的调研也作为默认调研的一部分。追加拍板：装 yt-dlp；只改本 skill；BASIC 完整跑。
+
+**基线**：v2.0.0（见下方条目与 git 历史）。
+
+**新增**
+- `references/05-youtube-research.md`：YouTube 搜什么、挑哪几条、怎么提炼（主张/机制/证据/边界＋时间戳）、降级顺序、禁止项。
+- `scripts/yt_research.py`：`search` / `transcript` / `info` 三个子命令（依赖 yt-dlp＋deno）。
+- `assets/eval-kit.md` §5 调研覆盖表模板。
+
+**改动**
+- `SKILL.md`：阶段 2 重写；BASIC 路径改为 0/0.5/2/5/7；铁律 1、交付清单、踩坑点同步；description 加「判领域＋五层信源」。
+- `references/01` §4 重写为 4.1–4.8。
+
+**来源（抄机制不抄内容）**
+- 已读原文：Stanford STORM `persona_generator.py`（先借相邻主题目录长出视角）；GPT Researcher `prompts.py`（先定领域角色、五条信源筛选标准）；LangChain open_deep_research `prompts.py`（按问题类型直达一手）；Jina node-DeepResearch `query-rewriter.ts`（判最权威语言/地区）、`url-tools.ts`（域名频次加权、每域上限）；Anthropic 多智能体研究系统工程文章（反内容农场、先宽后窄）；yt-dlp release notes 与 issue #13831（自动翻译字幕 429、`*-orig` 不受限）；YouTube Data API 配额页（2026-11-03 版）。
+- 仅凭转述：OpenAI / Gemini Deep Research 的计划阶段、Perplexity Focus、Elicit、Consensus。
+- 本机 strategy-essence：渠道覆盖表（空格不合格）、停止规则、升级链、先写一日答案再看标杆、主会话只调度。
+- 「五层信源」分层为本次归纳，非业界标准框架。
+
+**实测（2026-11-06）**
+- WebSearch `site:youtube.com` 7 条 0 条 YouTube 链接；WebFetch 读视频页只得标题 → 写入禁止项。
+- yt-dlp 搜索（中/英）通过；英文原语言自动字幕、中文人工字幕（zh-TW）下载通过；请求自动翻译 zh-Hans 得 429。
+- 中文视频 3 条中 2 条无任何字幕 → `info` 取简介＋章节通过。
+
+**未做 / 待校准**
+- 播放÷订阅 ≥1 的阈值未经实战校准。
+- 新旧版同题基线对比尚未跑。
+
+---
+
 ## v2.0.0 · yuanskill-pro（2026-08-16）
 
 **一句话**：在 yuanskill v1「研究驱动的提示词优化器」之上，补齐它最大的两块空白——**skill 这一形态的工程细节**与**实测闭环**。

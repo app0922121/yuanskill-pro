@@ -10,10 +10,12 @@
 | 文件 | 说明 |
 |---|---|
 | `SKILL.md` | 主入口：两种模式、工作流 0–8（含 0.5 形态判定）、12 条铁律、交付契约、踩坑点 |
-| `references/01-research-and-benchmark.md` | 需求四问与需求卡、形态判定、客观检查项、竞品调研、开源挖掘、13 维对比 |
+| `references/01-research-and-benchmark.md` | 需求四问与需求卡、形态判定、客观检查项、领域判定与五层信源调研、开源挖掘、13 维对比 |
 | `references/02-technique-library.md` | 提示词技术库、组合配方、约束三层、skill 字段级工程、模型与脚本分工 |
 | `references/03-deliver-and-engineering.md` | 合成产物、配套工程、可容错三件套、安全三闸、发布清单 |
 | `references/04-validate-and-iterate.md` | 三道闸自审、评测循环、改进纪律、踩坑点、去玄学 |
+| `references/05-youtube-research.md` | YouTube 调研：搜索、挑选、字幕提炼、降级、禁止项 |
+| `scripts/yt_research.py` | YouTube 取数（search / transcript / info），需 `brew install yt-dlp deno` |
 | `assets/eval-kit.md` | 测试用例、检查项、记分表、变化清单四张模板 |
 | `CHANGELOG.md` | 相对 v1 的变化：抄了什么（逐条标来源）、保留了什么、新增了什么、没抄什么 |
 
